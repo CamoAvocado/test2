@@ -3,22 +3,6 @@ import discord
 from discord.ext import commands
 from discord.ui import View, Button
 import os
-from flask import Flask
-from threading import Thread
-
-# Flask server to keep bot alive
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "I'm alive!"  # This page keeps the server alive
-
-def run():
-    app.run(host='0.0.0.0', port=8080)  # Running Flask on the specified port
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
 
 # Discord bot setup
 intents = discord.Intents.default()
@@ -76,9 +60,6 @@ async def invites(ctx):
 
     await ctx.send(content=banner_url)
     await ctx.send(embed=embed, view=CheckInvitesView())
-
-# **Make sure to call keep_alive() BEFORE running the bot**
-keep_alive()
 
 # Running your bot
 bot.run(os.getenv("DISCORD_TOKEN"))
