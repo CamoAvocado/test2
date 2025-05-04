@@ -28,7 +28,7 @@ class CheckInvitesView(View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @discord.ui.button(label="Check Invites", style=discord.ButtonStyle.secondary, emoji=discord.PartialEmoji(name='ezgif', id=1368677931865346089, animated=True))
+    @discord.ui.button(label="Check Invites", style=discord.ButtonStyle.secondary, emoji="📨")
     async def check_invites(self, interaction: discord.Interaction, button: discord.ui.Button):
         user = interaction.user
         guild = interaction.guild
